@@ -131,6 +131,12 @@ body{margin:0;background:#F2EFE7;color:#1A1920;overflow-x:hidden}
 .ksh-top-in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 40px;align-items:end;padding-bottom:30px}
 .ksh-brand{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.04em;color:#CFE3DB}
 .ksh-brand::before{content:"";width:22px;height:22px;border-radius:50%;border:4px solid var(--ksh-paper);background:radial-gradient(circle,var(--ksh-paper) 0 3px,transparent 3.5px)}
+.ksh-pnav{max-width:1080px;margin:-16px auto 24px}
+.ksh-pnav ul{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.ksh-pnav ul::-webkit-scrollbar{display:none}
+.ksh-pnav a{display:block;white-space:nowrap;padding:6px 14px;border-radius:999px;border:1.5px solid #3A3942;font-size:14px;font-weight:700;color:#D9D6CF;text-decoration:none}
+.ksh-pnav a:hover{border-color:#D9D6CF;color:#fff}
+.ksh-pnav a[aria-current="page"]{background:var(--ksh-paper);border-color:var(--ksh-paper);color:var(--ksh-ink)}
 .ksh-top h1{margin-top:12px;font-size:clamp(34px,6vw,60px);font-weight:800;letter-spacing:-.04em;line-height:1.1}
 .ksh-desc{margin-top:14px;font-size:16px;line-height:1.7;max-width:58ch;color:#D9D6CF}
 .ksh-nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;min-width:0}
@@ -157,15 +163,24 @@ body{margin:0;background:#F2EFE7;color:#1A1920;overflow-x:hidden}
 .ksh-foot li+li{margin-top:6px}
 .ksh-foot a{color:#D9D6CF;font-size:14px;text-decoration:none}
 .ksh-foot a:hover{color:#fff;text-decoration:underline}
+.ksh-flinks{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 32px;padding-top:28px;border-top:1px solid #3A3942}
+.ksh-flinks ul{display:flex;flex-wrap:wrap;gap:6px 18px}
+.ksh-foot .ksh-flinks li+li{margin-top:0}
 .ksh-fbar{max-width:1080px;margin:32px auto 0;padding:18px 16px 0;border-top:1px solid #3A3942;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px}
 .ksh-fbar a{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--ksh-paper)}
 .ksh-fbar a::before{content:"";width:16px;height:16px;border-radius:50%;border:3px solid var(--ksh-paper)}
-@media (max-width:860px){.ksh-top-in{grid-template-columns:1fr}.ksh-foot-in{grid-template-columns:1fr 1fr}.ksh-fabout-w{grid-column:1/-1}}
+@media (max-width:860px){.ksh-top-in{grid-template-columns:1fr}.ksh-foot-in{grid-template-columns:1fr 1fr}.ksh-fabout-w{grid-column:1/-1}.ksh-flinks{grid-template-columns:1fr}}
 @media (max-width:420px){.ksh-num{width:92px;height:92px}.ksh-num dd{font-size:24px}.ksh-nav-go{padding:7px 12px;font-size:13px}.ksh-foot-in{grid-template-columns:1fr}}
 </style>
 </head>
 <body id="top">
 <header class="ksh ksh-top">
+<nav class="ksh-pnav" aria-label="사이트 페이지">
+<ul>
+<li><a href="./" aria-current="page">홈</a></li>
+<li><a href="discount-coupon/">클룩 할인쿠폰</a></li>
+</ul>
+</nav>
 <div class="ksh-top-in">
 <div>
 <p class="ksh-brand">KLOOK 입장권 · 투어 · 호텔 할인</p>
@@ -1026,6 +1041,9 @@ body{margin:0;background:#F2EFE7;color:#1A1920;overflow-x:hidden}
 .kcp-foot p{font-size:14.5px;max-width:62ch}
 .kcp-foot a:not(.kcp-go){color:var(--kcp-grn);font-weight:700}
 .kcp-foot .kcp-go{margin-top:0}
+.kcp-all{display:flex;justify-content:center;margin-top:24px}
+.kcp-all a{display:inline-flex;align-items:center;justify-content:center;background:var(--kcp-paper);border:2px solid var(--kcp-ink);border-radius:999px;padding:12px 26px;font-size:15px;font-weight:700;color:var(--kcp-ink);text-decoration:none}
+.kcp-all a:hover{background:var(--kcp-ink);color:var(--kcp-paper)}
 @media (max-width:860px){
 .kcp-hd{grid-template-columns:1fr}
 .kcp-grid{grid-template-columns:1fr}
@@ -1342,6 +1360,7 @@ body{margin:0;background:#F2EFE7;color:#1A1920;overflow-x:hidden}
 <p>할인쿠폰과 할인코드, 클룩 포인트를 한 예약에 함께 쓸 수 있는지는 <a href="#klook-notes">클룩 할인코드 참고사항</a>에 정리했습니다.</p>
 <a class="kcp-go" href="https://app.ac/obC5Xql13" target="_blank" rel="nofollow sponsored noopener">클룩 할인쿠폰 받으러 가기</a>
 </div>
+<p class="kcp-all"><a href="discount-coupon/">클룩 할인쿠폰 전체 보기</a></p>
 </div>
 </section>
 <div class="ksh ksh-div" aria-hidden="true"><span></span></div>
@@ -1808,6 +1827,36 @@ body{margin:0;background:#F2EFE7;color:#1A1920;overflow-x:hidden}
 <li><a href="https://fft.trip-offer.co.kr/" target="_blank" rel="noopener">파페치 쿠폰</a></li>
 </ul>
 </div>
+<!--@FOOTER-LINKS-->
+<div class="ksh-flinks">
+<div>
+<p class="ksh-fcol-t">카드사별 할인</p>
+<ul>
+<li><a href="shinhan-card/">신한카드</a></li>
+<li><a href="kb-card/">KB국민카드</a></li>
+<li><a href="woori-card/">우리카드</a></li>
+<li><a href="hana-card/">하나카드</a></li>
+<li><a href="unionpay-card/">유니온페이</a></li>
+<li><a href="master-card/">마스터카드</a></li>
+<li><a href="kakao-pay/">카카오페이</a></li>
+<li><a href="toss-pay/">토스페이</a></li>
+<li><a href="naver-pay/">네이버페이</a></li>
+</ul>
+</div>
+<div>
+<p class="ksh-fcol-t">다른 할인코드</p>
+<ul>
+<li><a href="tripcom/">트립닷컴 할인코드</a></li>
+<li><a href="agoda/">아고다 할인코드</a></li>
+<li><a href="myrealtrip/">마이리얼트립 할인코드</a></li>
+<li><a href="hotelscom/">호텔스닷컴 할인코드</a></li>
+<li><a href="kkday/">kkday 할인코드</a></li>
+<li><a href="usimsa/">유심사 할인코드</a></li>
+<li><a href="rakutentravel/">라쿠텐트래블 할인코드</a></li>
+</ul>
+</div>
+</div>
+<!--@/FOOTER-LINKS-->
 </div>
 <div class="ksh-fbar"><p>© 2026 클룩 할인쿠폰 코드</p><a href="#top">맨 위로</a></div>
 </footer>
