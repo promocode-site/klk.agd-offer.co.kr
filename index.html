@@ -1860,5 +1860,22 @@ body{margin:0;background:#F2EFE7;color:#1A1920;overflow-x:hidden}
 </div>
 <div class="ksh-fbar"><p>© 2026 클룩 할인쿠폰 코드</p><a href="#top">맨 위로</a></div>
 </footer>
+<script>
+document.querySelectorAll('code[class$="-code"]').forEach(function (code) {
+  var container = code.closest('article') || code.closest('section');
+  var link = (container && container.querySelector('a[target="_blank"][href]')) ||
+    document.querySelector('a.ksh-nav-go[href]');
+  if (!link || code.closest('a')) return;
+  code.setAttribute('role', 'link');
+  code.setAttribute('tabindex', '0');
+  code.addEventListener('click', function () { link.click(); });
+  code.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      link.click();
+    }
+  });
+});
+</script>
 </body>
 </html>
